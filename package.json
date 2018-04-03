@@ -1,0 +1,20 @@
+{
+  "name": "moat",
+  "version": "1.0.0",
+  "description": "moat full-stack take-home",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuchaodong/moat.git"
+  },
+  "author": "YuChao Dong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuchaodong/moat/issues"
+  },
+  "homepage": "https://github.com/yuchaodong/moat#readme"
+}
