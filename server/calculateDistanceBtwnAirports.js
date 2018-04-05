@@ -60,15 +60,40 @@ const sampleData =
     //.toRadians()
 
 // Haversine formula(copied from site): 
-    // R (Earth's radius, convert to nautical miles)
+    // R = 3440 (Earth's radius in nautical miles)
     // a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
     // c = 2 ⋅ atan2( √a, √(1−a) )
     // d = R ⋅ c
         // where	φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km);
         // note that angles need to be in radians to pass to trig functions!
 // convert Formula to JS
-    // R = earth's radius in nautical miles
-    // a = Math.sin(Δφ/2) * Math.sin(Δφ/2) + Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ/2) * Math.sin(Δλ/2);
+    // R = 3440
+    // const latInRadians = toRadians(lat2 - lat1);
+    // const lonInRadians = toRadians(lon2 - lon1);
+    // a = Math.sin(latInRadians/2) * Math.sin(latInRadians/2) + Math.cos(latInRadians(lat1)) 
+    // * Math.cos(latInRadians(2)) * Math.sin(lonInRadians/2) * Math.sin(lonInRadians/2);
     // c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     // d = R * c
     // Δφ =>degree decimal (need to convert to radians)
+        // function toRadians(degree) {
+            // return degree * (Math.PI / 180);
+        // }
+
+function calculateDistanceBetweenAirports(lat1, lon1, lat2, lon2) {
+  const radius = 3440;
+  const latInRadians = toRadians(lat2-lat1);
+  const lonInRadians = toRadians(lon2-lon1);
+  const latSin = Math.sin(latInRadians/2) * Math.sin(latInRadians/2);
+  const latCos =  Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2));
+  const lonSin = Math.sin(lonInRadians/2) * Math.sin(lonInRadians/2);
+  const halfLengthSquared = latSin + latCos * lonSin;
+  const distanceInRadians = Math.atan2(Math.sqrt(halfLengthSquared), Math.sqrt(1 - halfLengthSquared));
+  const angDistanceInRadians = 2 * distanceInRadians;
+  const distanceInNauticalMiles = radius * angDistanceInRadians;
+  return distanceInNauticalMiles;
+}
+
+
+function toRadians(degree) {
+    return degree * (Math.PI / 180);
+}
