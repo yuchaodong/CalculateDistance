@@ -1,7 +1,6 @@
 // require data and use imported file as input
 let allAirports = require('./allAirports.json');
 
-
 const getUSAirports = (array) => {
     let USAirports = [];
     // iterate through imported array (data);
@@ -15,6 +14,5 @@ const getUSAirports = (array) => {
     // return US-only array
     console.log(USAirports);
 }
-
 
 getUSAirports();
