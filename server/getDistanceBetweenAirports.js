@@ -57,6 +57,4 @@ function convertToRadiansFromDegrees(degrees) {
     return degrees * (Math.PI / 180);
 }
 
-
-// const output = getDistanceBetweenAirports('Middle Georgia Regional Airport', 'ABI');
-// console.log(output)
+module.exports = getDistanceBetweenAirports;
