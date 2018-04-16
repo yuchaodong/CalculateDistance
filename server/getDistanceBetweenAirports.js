@@ -1,7 +1,7 @@
 const airportData = require('./getAirportData.js');
 const airportCoordinates = airportData.coordinates;
 const airportNames = airportData.names;
-const RADIUS_OF_EARTH = 3440; // In nautical miles
+const RADIUS_OF_EARTH = 3440; //In nautical miles
 
 
 function getDistanceBetweenAirports(input1, input2) {
