@@ -2,3 +2,12 @@ body {
     text-align: center;
     display: block;
 }
+
+/* #mapBorder {
+    width: 1000px;
+    height: 800px;
+} */
+
+#map {
+    height: 100%;
+  }
