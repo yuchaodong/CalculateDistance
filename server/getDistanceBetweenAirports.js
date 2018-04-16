@@ -22,10 +22,11 @@ function getDistanceBetweenAirports(input1, input2) {
 
 
 function getAirportCode(input) {
-  if (airportCoordinates[input]) {
+  const inputToUpperCase = input.toUpperCase();
+  if (airportCoordinates[inputToUpperCase]) {
     return input;
-  } else if (airportNames[input]) {
-    return airportNames[input];
+  } else if (airportNames[inputToUpperCase]) {
+    return airportNames[inputToUpperCase];
   }
   throw 'Invalid US Airport Code';
 }
