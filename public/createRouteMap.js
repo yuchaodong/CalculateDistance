@@ -1,4 +1,5 @@
 function createRouteMap() {
+
     const lat1 = 37.772
     const lon1 = -122.214
     const lat2 = -27.467
@@ -8,6 +9,19 @@ function createRouteMap() {
     const flightPath = createFlightPath(lat1, lon1, lat2, lon2);
     flightPath.setMap(map);
     centerMapToPolyline(map, flightPath);
+
+    const coords1 = {lat: lat1, lng: lon1};
+    const coords2 = {lat: lat2, lng: lon2}
+
+    const marker1 = new google.maps.Marker({
+        position: coords1,
+        map: map
+    });
+
+    const marker2 = new google.maps.Marker({
+        position: coords2,
+        map: map
+    });
 }
 
 
@@ -48,3 +62,4 @@ function centerMapToPolyline(map, polyline){
     }
     map.fitBounds(bounds);
 }
+
