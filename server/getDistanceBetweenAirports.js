@@ -4,12 +4,16 @@ const airportNames = airportData.names;
 const RADIUS_OF_EARTH = 3440; //In nautical miles
 
 
-function getDistanceBetweenAirports(input1, input2) {
-  const code1 = getAirportCode(input1);
-  const code2 = getAirportCode(input2);
+function assertValidAirportCode(input) {
+  if (typeof input !== 'string') return false;
+  if (airportCoordinates[input]) return true;
+  return false;
+}
 
-  const coordinates1 = getAirportCoordinates(code1);
-  const coordinates2 = getAirportCoordinates(code2);
+
+function getDistanceBetweenAirports(airportCode1, airportCode2) {
+  const coordinates1 = getAirportCoordinates(airportCode1);
+  const coordinates2 = getAirportCoordinates(airportCode2);
 
   const distance = getDistanceBetweenCoordinates(
     coordinates1.latitude,
@@ -22,11 +26,12 @@ function getDistanceBetweenAirports(input1, input2) {
 
 
 function getAirportCode(input) {
-  const inputToUpperCase = input.toUpperCase();
-  if (airportCoordinates[inputToUpperCase]) {
+  if (typeof input !== 'string') throw 'Input is not a string';
+  
+  if (airportCoordinates[input]) {
     return input;
-  } else if (airportNames[inputToUpperCase]) {
-    return airportNames[inputToUpperCase];
+  } else if (airportNames[input]) {
+    return airportNames[input];
   }
   throw 'Invalid US Airport Code';
 }
@@ -60,6 +65,7 @@ function convertToRadiansFromDegrees(degrees) {
 
 
 module.exports = {
+  assertValidAirportCode,
   getDistanceBetweenAirports,
   getAirportCoordinates
 }

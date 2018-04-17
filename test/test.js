@@ -6,7 +6,7 @@ const test_client = supertest(app);
 
 
 it('should respond with the distance between the airports', function () {
-    const distance = helpers.getDistanceBetweenAirports('Lehigh Valley International Airport', 'ABI');
+    const distance = helpers.getDistanceBetweenAirports('ABE', 'ABI');
     assert.equal(distance, 1265);
 });
 
@@ -20,7 +20,7 @@ it('should respond with the distance between the airports', function (done) {
     test_client
     .get('/distance')
     .query({
-        'airport1': 'Lehigh Valley International Airport',
+        'airport1': 'ABE',
         'airport2': 'ABI'
     })
     .expect(200)

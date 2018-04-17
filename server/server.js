@@ -11,7 +11,13 @@ app.use(express.static('public'));
 
 
 app.get('/distance', function(req, res) {
-    const distance = helpers.getDistanceBetweenAirports(req.query.airport1, req.query.airport2);
+    const { airport1, airport2 } = req.query;
+
+    if (!helpers.assertValidAirportCode(airport1) || !helpers.assertValidAirportCode(airport2)) {
+        return res.status(400).send()        
+    }
+ 
+    const distance = helpers.getDistanceBetweenAirports(airport1, airport2);
     res.status(200).json({
         'distance': distance
     })
