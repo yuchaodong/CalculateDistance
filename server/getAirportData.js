@@ -9,7 +9,8 @@ for (let airport of allAirports) {
 
   airportCoordinates[airport.code] = {
     'latitude': airport.lat,
-    'longitude': airport.lon
+    'longitude': airport.lon,
+    'name': airport.name
   };
   airportNames[airportNameToUpperCase] = airport.code;
 }

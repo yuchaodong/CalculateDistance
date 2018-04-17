@@ -1,26 +1,23 @@
-function createRouteMap() {
-
-    const lat1 = 37.772
-    const lon1 = -122.214
-    const lat2 = -27.467
-    const lon2 = 153.027
-
+function createRouteMap(point1, point2) {
+    const infowindow = new google.maps.InfoWindow();
     const map = createMap();
-    const flightPath = createFlightPath(lat1, lon1, lat2, lon2);
+    const flightPath = createFlightPath(point1.lat, point1.lon, point2.lat, point2.lon);
     flightPath.setMap(map);
     centerMapToPolyline(map, flightPath);
+    createMarker(map, infowindow, point1.lat, point1.lon, point1.name);
+    createMarker(map, infowindow, point2.lat, point2.lon, point2.name);
+}
 
-    const coords1 = {lat: lat1, lng: lon1};
-    const coords2 = {lat: lat2, lng: lon2}
 
-    const marker1 = new google.maps.Marker({
-        position: coords1,
+function createMarker(map, infowindow, lat, lon, name) {
+    const marker = new google.maps.Marker({
+        position: {'lat': lat, 'lng': lon},
         map: map
     });
 
-    const marker2 = new google.maps.Marker({
-        position: coords2,
-        map: map
+    google.maps.event.addListener(marker, 'click', function () {
+        infowindow.setContent(name);
+        infowindow.open(map, marker)
     });
 }
 
@@ -29,7 +26,7 @@ function createMap() {
     const mapDiv = document.getElementById('map');
     const map = new google.maps.Map(mapDiv, {
         zoom: 3,
-        center: {lat: 40, lng: -70},
+        center: {lat: 37.0902, lng: 95.7129},
         mapTypeId: 'terrain'
     });
     return map;
