@@ -58,4 +58,8 @@ function convertToRadiansFromDegrees(degrees) {
     return degrees * (Math.PI / 180);
 }
 
-module.exports = getDistanceBetweenAirports;
+
+module.exports = {
+  getDistanceBetweenAirports,
+  getAirportCoordinates
+}

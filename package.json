@@ -2,7 +2,7 @@
   "name": "moat",
   "version": "1.0.0",
   "description": "moat full-stack take-home",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "mocha --exit",
     "start": "node server/server.js"
