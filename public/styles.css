@@ -3,6 +3,11 @@
     display: block;
 }
 
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+
 #mapWrap {
     width: 1000px;
     height: 800px;

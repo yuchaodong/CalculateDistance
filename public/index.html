@@ -16,16 +16,18 @@
             <h2>Calculate Distance Between Airports</h2>
             <h4>Please enter airport name or code below to calculate the distance between any 2 aiports in the US</h4>
             <div>
-                <form id='inputForm'>
-                    <input type='text' id='airport1' placeholder='Origin Airport'>
-                    <input type='text' id='airport2' placeholder='Destination Airport'><br>
+                <form autocomplete='off' id='inputForm'>
+                    <div class='autocomplete'>
+                        <input type='text' id='airport1' placeholder='Origin Airport'>
+                        <input type='text' id='airport2' placeholder='Destination Airport'><br>
+                    </div>
                 </form>
                 
                 <button id='calculateDistanceButton'>Calculate Distance</button>
                 <div id='displayDistance'></div>
             </div>
             <div id='mapWrap'>
-                <div id='map' class='googleMap'></div>
+                <div id='map'></div>
             </div>
         </div>
         <script src='index.js'></script>        
