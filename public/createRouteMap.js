@@ -10,7 +10,7 @@ function createRouteMap(mapDiv, data) {
     centerMapToPolyline(map, flightPath);
 
     for (let point of points) {
-        createMarker(map, infoWindow, point)
+        createMarker(map, infoWindow, point);
     }
 }
 
