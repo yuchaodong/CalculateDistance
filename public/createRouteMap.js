@@ -1,10 +1,10 @@
-function createRouteMap(data) {
+function createRouteMap(mapDiv, data) {
     if (!Array.isArray(data)) throw 'ERROR: Not an array!';
 
     const points = convertDataToPoints(data);
 
     const infowindow = new google.maps.InfoWindow();
-    const map = createMap();
+    const map = createMap(mapDiv);
     const flightPath = createFlightPath(points);
     flightPath.setMap(map);
     centerMapToPolyline(map, flightPath);
@@ -38,8 +38,7 @@ function createMarker(map, infowindow, point) {
 }
 
 
-function createMap() {
-    const mapDiv = document.getElementById('map');
+function createMap(mapDiv) {
     const map = new google.maps.Map(mapDiv, {
         zoom: 3,
         center: {lat: 37.0902, lng: 95.7129},
