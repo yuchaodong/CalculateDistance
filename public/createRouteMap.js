@@ -3,14 +3,14 @@ function createRouteMap(mapDiv, data) {
 
     const points = convertDataToPoints(data);
 
-    const infowindow = new google.maps.InfoWindow();
+    const infoWindow = new google.maps.InfoWindow();
     const map = createMap(mapDiv);
     const flightPath = createFlightPath(points);
     flightPath.setMap(map);
     centerMapToPolyline(map, flightPath);
 
     for (let point of points) {
-        createMarker(map, infowindow, point)
+        createMarker(map, infoWindow, point)
     }
 }
 
@@ -25,15 +25,19 @@ function convertDataToPoints(data) {
    return points;
 }
 
-function createMarker(map, infowindow, point) {
+function createMarker(map, infoWindow, point) {
     const marker = new google.maps.Marker({
         position: {'lat': point.lat, 'lng': point.lng},
         map: map
     });
 
-    google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(point.name);
-        infowindow.open(map, marker)
+    google.maps.event.addListener(marker, 'mouseover', function () {
+        infoWindow.setContent(point.name);
+        infoWindow.open(map, marker);
+    });
+
+    google.maps.event.addListener(marker, 'mouseout', function () {
+        infoWindow.close();
     });
 }
 

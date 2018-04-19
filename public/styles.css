@@ -1,13 +1,18 @@
-body {
+.menu-container {
     text-align: center;
     display: block;
 }
 
-/* #mapBorder {
+#mapWrap {
     width: 1000px;
     height: 800px;
-} */
+}
 
 #map {
-    height: 100%;
-  }
+    width: 80%;
+    margin:auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
