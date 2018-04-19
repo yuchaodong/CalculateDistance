@@ -36,7 +36,7 @@ function showRouteMap(mapDiv, airportCode1, airportCode2) {
         createRouteMap(mapDiv, points);
     })
     .catch((error) => {
-        console.log('lol error. probs need to show something', error)
+        console.log(error);
     })
 }
 
@@ -47,7 +47,7 @@ function getAirportInfo(airportCode) {
             'airportCode': airportCode
         }
     };
-
+    
     return axios.get(URL_AIRPORT_INFO, requestParams)
         .then((response) => {
             return response.data;
