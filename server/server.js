@@ -7,29 +7,32 @@ const app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+
 app.use(express.static('public'));
 
 
-app.get('/distance', function(req, res) {
-    const { airport1, airport2 } = req.query;
+app.get('/airport_distance', function(req, res) {
+    const { airportCode1, airportCode2 } = req.query;
 
-    if (!helpers.assertValidAirportCode(airport1) || !helpers.assertValidAirportCode(airport2)) {
+    if (!helpers.assertValidAirportCode(airportCode1) || !helpers.assertValidAirportCode(airportCode2)) {
         return res.status(400).send()        
     }
  
-    const distance = helpers.getDistanceBetweenAirports(airport1, airport2);
-    res.status(200).json({
+    const distance = helpers.getDistanceBetweenAirports(airportCode1, airportCode2);
+    const responseBody = {
         'distance': distance
-    })
+    };
+    res.status(200).json(responseBody);
 });
 
 
-app.get('/coordinates', function(req, res) {
-    const coordinates = helpers.getAirportCoordinates(req.query.airport);
-    res.status(200).json({
-        'latitude': coordinates.latitude,
-        'longitude': coordinates.longitude
-    })
+app.get('/airport_info', function(req, res) {
+    const { airportCode } = req.query;
+    if (!helpers.assertValidAirportCode(airportCode)) {
+        return res.status(400).send()        
+    }
+    const airportInfo = helpers.getAirportInfo(airportCode);
+    res.status(200).json(airportInfo)
 });
 
 

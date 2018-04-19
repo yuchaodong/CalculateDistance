@@ -1,50 +1,25 @@
-
-function getAirportInfo(code) {
-    // TODO use axios 'get /coordinates' via code
-    return {
-        lat: 40,
-        lon: -73,
-        name: 'first one'
-    }
-}
-function getCoordinates() {
-    const getLatAndLon1 = document.getElementById('airport1').value;
-    const getLatAndLon2 = document.getElementById('airport2').value;
-
-    const url = '/coordinates';
-    const coordinatesParams = {
-        params: {
-
-        }
-    }
-}
+const URL_AIRPORT_INFO = '/airport_info';
+const URL_AIRPORT_DISTANCE = '/airport_distance';
 
 
-function getAirports() {
-    const point1 = getAirportInfo('JFK')
-    const point2 = {
-        lat: 32,
-        lon: -99,
-        name: 'second one'
-    }
-    createRouteMap(point1, point2);
-}
-
-
-
-function getAirports2() {
+function showAirportDistanceInfo() {
     const display = document.getElementById('displayDistance');
-    const airport1 = document.getElementById('airport1').value;
-    const airport2 = document.getElementById('airport2').value;
+    const airportCode1 = document.getElementById('airport1').value;
+    const airportCode2 = document.getElementById('airport2').value;
     
-    const url = '/distance';
+    showAirportDistance(display, airportCode1, airportCode2);
+    showRouteMap(airportCode1, airportCode2);
+}
+
+
+function showAirportDistance(display, airportCode1, airportCode2) {
     const distanceParams = {
         params: {
-            'airport1': airport1,
-            'airport2': airport2
+            'airportCode1': airportCode1,
+            'airportCode2': airportCode2
         }
     }
-    axios.get(url, distanceParams)
+    axios.get(URL_AIRPORT_DISTANCE, distanceParams)
         .then((response) => {
             display.innerHTML = response.data.distance;
         })
@@ -54,5 +29,30 @@ function getAirports2() {
 }
 
 
+function showRouteMap(airportCode1, airportCode2) {    
+    Promise.all([getAirportInfo(airportCode1), getAirportInfo(airportCode2)])
+    .then((points) => {
+        createRouteMap(points);
+    })
+    .catch((error) => {
+        console.log('lol error. probs need to show something', error)
+    })
+}
+
+
+function getAirportInfo(airportCode) {
+    const requestParams = {
+        params: {
+            'airportCode': airportCode
+        }
+    };
+
+    return axios.get(URL_AIRPORT_INFO, requestParams)
+        .then((response) => {
+            return response.data;
+        });
+}
+
+
 const getDistance = document.getElementById('calculateDistanceButton');
-getDistance.addEventListener('click', getAirports);
+getDistance.addEventListener('click', showAirportDistanceInfo);

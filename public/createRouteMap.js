@@ -1,22 +1,38 @@
-function createRouteMap(point1, point2) {
+function createRouteMap(data) {
+    if (!Array.isArray(data)) throw 'ERROR: Not an array!';
+
+    const points = convertDataToPoints(data);
+
     const infowindow = new google.maps.InfoWindow();
     const map = createMap();
-    const flightPath = createFlightPath(point1.lat, point1.lon, point2.lat, point2.lon);
+    const flightPath = createFlightPath(points);
     flightPath.setMap(map);
     centerMapToPolyline(map, flightPath);
-    createMarker(map, infowindow, point1.lat, point1.lon, point1.name);
-    createMarker(map, infowindow, point2.lat, point2.lon, point2.name);
+
+    for (let point of points) {
+        createMarker(map, infowindow, point)
+    }
 }
 
+function convertDataToPoints(data) {
+    const points = data.map((point) => {
+        return {
+           lat: parseFloat(point.lat),
+           lng: parseFloat(point.lon),
+           name: point.name
+       };
+   });
+   return points;
+}
 
-function createMarker(map, infowindow, lat, lon, name) {
+function createMarker(map, infowindow, point) {
     const marker = new google.maps.Marker({
-        position: {'lat': lat, 'lng': lon},
+        position: {'lat': point.lat, 'lng': point.lng},
         map: map
     });
 
     google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(name);
+        infowindow.setContent(point.name);
         infowindow.open(map, marker)
     });
 }
@@ -33,14 +49,9 @@ function createMap() {
 }
 
 
-function createFlightPath(lat1, lon1, lat2, lon2) {
-    const flightPathCoordinates = [
-        {lat: lat1, lng: lon1},
-        {lat: lat2, lng: lon2}        
-    ];
-
+function createFlightPath(points) {
     const flightPath = new google.maps.Polyline({
-        path: flightPathCoordinates,
+        path: points,
         geodesic: true,
         strokeColor: '#FF0000',
         strokeOpacity: 1.0,

@@ -11,38 +11,38 @@ it('should respond with the distance between the airports', function () {
 });
 
 it('should return an objec with lat and lon', function() {
-    const coordinates = helpers.getAirportCoordinates('JFK');
-    assert.equal(coordinates.latitude, '40.6437')
-    assert.equal(coordinates.longitude, '-73.79')
+    const coordinates = helpers.getAirportInfo('JFK');
+    assert.equal(coordinates.lat, '40.6437')
+    assert.equal(coordinates.lon, '-73.79')
 })
 
 it('should respond with the distance between the airports', function (done) {
     test_client
-    .get('/distance')
-    .query({
-        'airport1': 'ABE',
-        'airport2': 'ABI'
-    })
-    .expect(200)
-    .end(function(err, res) {
-        if (err) return done(err);
-        assert.equal(res.body.distance, 1265)
-        done();
-    })
+        .get('/airport_distance')
+        .query({
+            'airportCode1': 'ABE',
+            'airportCode2': 'ABI'
+        })
+        .expect(200)
+        .end(function(err, res) {
+            if (err) return done(err);
+            assert.equal(res.body.distance, 1265)
+            done();
+        })
 });
 
 
 it('should respond with airport coordinates', function (done) {
     test_client
-    .get('/coordinates')
+    .get('/airport_info')
     .query({
-        'airport': 'JFK'
+        'airportCode': 'JFK'
     })
     .expect(200)
     .end(function(err, res) {
         if (err) return done(err);
-        assert.equal(res.body.latitude, '40.6437')
-        assert.equal(res.body.longitude, '-73.79')        
+        assert.equal(res.body.lat, '40.6437')
+        assert.equal(res.body.lon, '-73.79')        
         done();
     })
 });

@@ -1,34 +1,34 @@
 const airportData = require('./getAirportData.js');
-const airportCoordinates = airportData.coordinates;
-const airportNames = airportData.names;
+const airportInfo = airportData.airportInfo;
+const airportNames = airportData.airportNames;
 const RADIUS_OF_EARTH = 3440; //In nautical miles
 
 
 function assertValidAirportCode(input) {
   if (typeof input !== 'string') return false;
-  if (airportCoordinates[input]) return true;
+  if (airportInfo[input]) return true;
   return false;
 }
 
 
 function getDistanceBetweenAirports(airportCode1, airportCode2) {
-  const coordinates1 = getAirportCoordinates(airportCode1);
-  const coordinates2 = getAirportCoordinates(airportCode2);
+  const coordinates1 = getAirportInfo(airportCode1);
+  const coordinates2 = getAirportInfo(airportCode2);
 
   const distance = getDistanceBetweenCoordinates(
-    coordinates1.latitude,
-    coordinates1.longitude,
-    coordinates2.latitude,
-    coordinates2.longitude
+    coordinates1.lat,
+    coordinates1.lon,
+    coordinates2.lat,
+    coordinates2.lon
   );
   return distance;
 }
 
 
 function getAirportCode(input) {
-  if (typeof input !== 'string') throw 'Input is not a string';
+  if (typeof input !== 'string' || input === '') throw 'Input is not a string';
   
-  if (airportCoordinates[input]) {
+  if (airportInfo[input]) {
     return input;
   } else if (airportNames[input]) {
     return airportNames[input];
@@ -37,9 +37,9 @@ function getAirportCode(input) {
 }
 
 
-function getAirportCoordinates(input) {
+function getAirportInfo(input) {
   const airportCode = getAirportCode(input);
-  const coordinates = airportCoordinates[airportCode];
+  const coordinates = airportInfo[airportCode];
   return coordinates;
 }
 
@@ -67,5 +67,5 @@ function convertToRadiansFromDegrees(degrees) {
 module.exports = {
   assertValidAirportCode,
   getDistanceBetweenAirports,
-  getAirportCoordinates
+  getAirportInfo
 }
