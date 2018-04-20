@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const helpers = require('./getDistanceBetweenAirports.js');
+const { airportSelections } = require('./getAirportData.js');
 const app = express();
 
 
@@ -33,6 +34,14 @@ app.get('/airport_info', function(req, res) {
     }
     const airportInfo = helpers.getAirportInfo(airportCode);
     res.status(200).json(airportInfo);
+});
+
+
+app.get('/airport_selections', function(req, res) {
+    const responseBody = {
+        airportSelections
+    };
+    res.status(200).json(responseBody);
 });
 
 

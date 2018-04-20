@@ -1,6 +1,4 @@
-const airportData = require('./getAirportData.js');
-const airportInfo = airportData.airportInfo;
-const airportNames = airportData.airportNames;
+const { airportInfo, airportNames } = require('./getAirportData.js');
 const RADIUS_OF_EARTH = 3440; //In nautical miles
 
 

@@ -46,3 +46,16 @@ it('should respond with airport coordinates', function (done) {
         done();
     })
 });
+
+
+it('should respond with count of airport selections', function (done) {
+    test_client
+    .get('/airport_selections')
+    .expect(200)
+    .end(function(err, res) {
+        if (err) return done(err);
+        const selectionCount = Object.keys(res.body.airportSelections).length;
+        assert.equal(selectionCount, 735);
+        done();
+    })
+});
