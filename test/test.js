@@ -14,7 +14,7 @@ it('should return an objec with lat and lon', function() {
     const coordinates = helpers.getAirportInfo('JFK');
     assert.equal(coordinates.lat, '40.6437');
     assert.equal(coordinates.lon, '-73.79');
-})
+});
 
 it('should respond with the distance between the airports', function (done) {
     test_client

@@ -5,8 +5,8 @@ const URL_AIRPORT_DISTANCE = '/airport_distance';
 function showAirportDistanceInfo() {
     const displayDiv = document.getElementById('displayDistance');
     const mapDiv = document.getElementById('map');    
-    const airportCode1 = document.getElementById('airport1').value;
-    const airportCode2 = document.getElementById('airport2').value;
+    const airportCode1 = document.getElementById('airportInput1').getAttribute('data-airport-code');
+    const airportCode2 = document.getElementById('airportInput2').getAttribute('data-airport-code');
     
     showAirportDistance(displayDiv, airportCode1, airportCode2);
     showRouteMap(mapDiv, airportCode1, airportCode2);
