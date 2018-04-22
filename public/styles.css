@@ -1,23 +1,61 @@
 .menu-container {
-    text-align: center;
-    display: block;
+  font: 16px Arial; 
+  box-sizing: border-box; 
+  text-align: center;
+  display: block;
 }
 
 .autocomplete {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 #mapWrap {
-    width: 1000px;
-    height: 800px;
+  min-width: 400px;
+  min-height: 300px;
+  /* margin: auto; */
 }
 
 #map {
-    width: 80%;
-    margin:auto;
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  min-height: 70vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+.autocomplete-items div:hover {
+  background-color: beige; 
 }
