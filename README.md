@@ -54,12 +54,10 @@ The auto-complete functionality is in the front-end, in public (for the sake of 
                         ├── index.html 
                         ├── index.js 
                         └── styles.css      
-
-moat    ├── server      ├── allAirports.json    
+        ├── server      ├── allAirports.json    
                         ├── getAirportData.js
                         ├── getDistanceBetweenAirports.js
                         └── server.js
-
         ├── test         ── test.js
         ├── package.json
         └── README.md
