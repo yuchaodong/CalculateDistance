@@ -3,8 +3,7 @@
 To clone the repo, enter command (This is a private repo. For access, please ask for invite.): 
 `git clone https://github.com/yuchaodong/moat.git`
 
-Before using, make sure you have the following dependencies installed:
-axios: `npm install axios`;
+Before using, make sure you have the following dependencies installed:  axios: `npm install axios`;
 body-parser: `npm install body-parser`;
 express `npm install express`;
 mocha: `npm install mocha`;
