@@ -36,9 +36,7 @@ function createAutocompleteList(inputDiv, airportSelections) {
     function closeAllLists(element) {
         const autocompleteItems = document.getElementsByClassName('autocomplete-items');
         for (let autocompleteItem of autocompleteItems) {
-            // if (element !== autocompleteItem && element !== inputDiv) {
                 autocompleteItem.parentNode.removeChild(autocompleteItem);
-            // }
         }
     }
 
@@ -57,7 +55,7 @@ function loadAutocomplete() {
             createAutocompleteList(airportInput2, response.data.airportSelections);
         })
         .catch((error) => {
-            // TODO
+            console.log(error);
         });    
 }
 

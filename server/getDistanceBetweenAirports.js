@@ -19,7 +19,7 @@ function getDistanceBetweenAirports(airportCode1, airportCode2) {
     coordinates2.lat,
     coordinates2.lon
   );
-  return distance + ' Nautical Miles Between ' + airportCode1 + ' and ' + airportCode2;
+  return 'It is ' + distance + ' Nautical Miles From ' + airportCode1 + ' to ' + airportCode2;
 }
 
 

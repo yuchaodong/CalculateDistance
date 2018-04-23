@@ -54,10 +54,12 @@ function getAirportInfo(airportCode) {
         });
 }
 
+
 function resetAirportInputs() {
     document.getElementById('airportInput1').value = '';
     document.getElementById('airportInput2').value = '';
 }
+
 
 const getDistance = document.getElementById('calculateDistanceButton');
 getDistance.addEventListener('click', showAirportDistanceInfo);

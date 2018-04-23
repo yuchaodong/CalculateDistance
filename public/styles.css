@@ -1,28 +1,37 @@
-.menu-container {
-  font: 16px Arial; 
-  box-sizing: border-box; 
-  text-align: center;
-  display: block;
+body {
+  background-image: url('https://bit.ly/2qRktvg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
 }
 
-.autocomplete {
-  position: relative;
-  display: inline-block;
+.flex-container {
+  font-family: 'Righteous', cursive;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 10px;
+}
+
+#displayDistance {
+  margin: 10px;
 }
 
 #mapWrap {
   min-width: 400px;
   min-height: 300px;
-  /* margin: auto; */
 }
 
 #map {
   width: 80%;
   margin: auto;
   min-height: 70vh;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
 }
 
 input {
@@ -33,9 +42,17 @@ input {
 }
 
 button {
-  background-color: DodgerBlue;
+  background-color: black;
   color: #fff;
   cursor: pointer;
+  font-family: inherit;
+  padding: 10px;
+  margin: 10px;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
 }
 
 .autocomplete-items {
