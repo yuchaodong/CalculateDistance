@@ -38,6 +38,9 @@ Calculating distance: <br />
 
 For this app, the Haversine Formula is used in calculating the distance between the airports, though the Google Maps API also has the functionality to calculate distance.
 
+Auto-completion: <br />
+
+The auto-complete function for airport name input is written entirely in vanilla JS. The full function can be found in public/autocomplete.js.
 
 Testing: <br />
 
