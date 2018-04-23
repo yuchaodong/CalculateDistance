@@ -31,7 +31,7 @@ The database is stored locally in a file named allAirports.json. The decision to
 
 When airport name is 'No Name': <br />
 
-There are some airports in the database who's name has a value of empty string (''). For those airports, I have changed their name from '' to 'No Name.' Some examples are 'IRM,''KFP' and 'KNK.'
+There are some airports in the database who's name has a value of empty string (''). For those airports, I have changed their name from '' to 'No Name.' Some examples are 'IRM,' 'KFP' and 'KNK.'
 
 
 Calculating distance: <br />
@@ -47,8 +47,24 @@ Supertest is used with Mocha to test endpoints and functions. The tests can be f
 How the app is structured: <br />
 
 The db is stored on the back-end, in server.
-The auto-complete functionality is in the front-end, in public (for the sake of speed).
+The auto-complete functionality is in the front-end, in public (for the sake of speed). <br />
 
+
+        ├── public      ├── autocomplete.js 
+                        ├── createRouteMap.js 
+                        ├── index.html 
+                        ├── index.js 
+                        └── styles.css      
+
+moat    ├── server      ├── allAirports.json    
+                        ├── getAirportData.js
+                        ├── getDistanceBetweenAirports.js
+                        └── server.js
+
+        ├── test         ── test.js
+        ├── package.json
+        └── README.md
+       
 
 API Key: <br />
 
