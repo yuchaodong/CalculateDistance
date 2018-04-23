@@ -36,7 +36,7 @@ There are some airports in the database who's name has a value of empty string (
 
 Calculating distance: <br />
 
-For this app, the Haversine Formula is used in calculating the distance between the airports, though the Google Maps API has that functionality.
+For this app, the Haversine Formula is used in calculating the distance between the airports, though the Google Maps API also has the functionality to calculate distance.
 
 
 Testing: <br />
@@ -54,4 +54,4 @@ The auto-complete functionality is on the front-end, in public (for the sake of 
 
 API Key: <br />
 
-Usually, it is bad practice to publicly reveal API Keys in your code. However, according to Google documentation, the Google Maps Browser Key 'must be public on your page' so that's why you still see the key in the public folder.
+Usually, it is bad practice to publicly reveal API Keys in your code. However, according to Google documentation, the Google Maps Browser Key 'must be public on your page' so that's why you will see the key in the public folder.
