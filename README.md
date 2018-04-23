@@ -11,7 +11,7 @@ mocha: `npm install mocha`; <br />
 nodemon: `npm install nodemon`; <br />
 supertest: `npm install supertest`; <br />
 
-To use, enter command: <br />
+To run the app, enter command: <br />
 `nodemon`;
 
 To test, enter command: <br />
