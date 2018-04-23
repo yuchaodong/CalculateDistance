@@ -47,7 +47,7 @@ Supertest is used with Mocha to test endpoints and functions. The tests can be f
 How the app is structured: <br />
 
 The db is stored on the back-end, in server.
-The auto-complete functionality is in the front-end, in public (for the sake of speed). <br />
+The auto-complete functionality is on the front-end, in public (for the sake of speed). <br />
 
 ![image](https://user-images.githubusercontent.com/17919731/39131302-20557034-46dd-11e8-96a8-342461e20a72.png)
        
