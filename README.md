@@ -49,21 +49,21 @@ How the app is structured: <br />
 The db is stored on the back-end, in server.
 The auto-complete functionality is in the front-end, in public (for the sake of speed). <br />
 
-├── public      
-│   ├── autocomplete.js 
-│   ├── createRouteMap.js       
-│   ├── index.html 
-│   ├── index.js 
-│   └── styles.css      
-├── server      
-│   ├── allAirports.json    
-│   ├── getAirportData.js
-│   ├── getDistanceBetweenAirports.js
-│   └── server.js
-├── test
-│   └── test.js
-├── package.json
-└── README.md
+├── public <br />
+│   ├── autocomplete.js <br /> 
+│   ├── createRouteMap.js <br />       
+│   ├── index.html <br />
+│   ├── index.js <br />
+│   └── styles.css <br /> 
+├── server <br />
+│   ├── allAirports.json <br />    
+│   ├── getAirportData.js <br />
+│   ├── getDistanceBetweenAirports.js <br />
+│   └── server.js <br />
+├── test <br />
+│   └── test.js <br />
+├── package.json <br />
+└── README.md <br />
 
 
 API Key: <br />
