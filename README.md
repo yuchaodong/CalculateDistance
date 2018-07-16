@@ -1,5 +1,5 @@
 
-To clone the repo, enter command (This is a private repo. For access, please ask for invite.): <br />
+To clone the repo, enter command: <br />
 `git clone https://github.com/yuchaodong/CalculateDistance.git`
 
 Before using, make sure you have the following dependencies installed: <br />
