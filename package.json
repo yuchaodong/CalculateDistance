@@ -1,7 +1,7 @@
 {
-  "name": "moat",
+  "name": "Calculate Airport Distance",
   "version": "1.0.0",
-  "description": "moat full-stack take-home",
+  "description": "",
   "main": "server/server.js",
   "scripts": {
     "test": "mocha --exit",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yuchaodong/moat.git"
+    "url": "git+https://github.com/yuchaodong/CalculateDistance.git"
   },
   "author": "YuChao Dong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yuchaodong/moat/issues"
+    "url": "https://github.com/yuchaodong/CalculateDistance/issues"
   },
-  "homepage": "https://github.com/yuchaodong/moat#readme",
+  "homepage": "https://github.com/yuchaodong/CalculateDistance#readme",
   "devDependencies": {
     "nodemon": "^1.17.3",
     "supertest": "^3.0.0"
